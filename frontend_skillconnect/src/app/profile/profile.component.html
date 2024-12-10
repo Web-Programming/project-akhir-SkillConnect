@@ -1,0 +1,86 @@
+<div class="profile-container">
+  <h2>Profile</h2>
+
+  <!-- Loading Indicator -->
+  <div *ngIf="isLoading" class="loading-spinner">
+    Loading...
+  </div>
+
+  <!-- Profile Content -->
+  <div *ngIf="!isLoading">
+    <!-- Profile Image Section -->
+    <div class="profile-photo-container">
+      <img 
+        *ngIf="userProfile.photoUrl" 
+        [src]="userProfile.photoUrl" 
+        alt="Profile" 
+        class="profile-photo"
+      >
+      <div 
+        *ngIf="!userProfile.photoUrl" 
+        class="profile-initial"
+        [style.background-color]="getRandomColor()"
+      >
+        {{ getInitials(userProfile.name) }}
+      </div>
+      <div *ngIf="!userProfile.photoUrl" class="photo-notice">
+        Foto profile belum diupload
+      </div>
+      <button class="change-photo-btn">Change Photo</button>
+    </div>
+
+    <!-- Success/Error Messages -->
+    <div *ngIf="successMessage" class="alert alert-success">
+      {{ successMessage }}
+    </div>
+    <div *ngIf="errorMessage" class="alert alert-danger">
+      {{ errorMessage }}
+    </div>
+
+    <!-- Profile Form -->
+    <form (ngSubmit)="onSaveChanges()" #profileForm="ngForm">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input 
+          type="text" 
+          id="name" 
+          name="name"
+          [(ngModel)]="userProfile.name"
+          required>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input 
+          type="email" 
+          id="email" 
+          name="email"
+          [(ngModel)]="userProfile.email"
+          required
+          readonly> <!-- Email dibuat readonly karena biasanya tidak bisa diubah -->
+      </div>
+
+      <div class="form-group">
+        <label for="phone">Phone</label>
+        <input 
+          type="tel" 
+          id="phone" 
+          name="phone"
+          [(ngModel)]="userProfile.phone">
+      </div>
+
+      <div class="form-group">
+        <label for="bio">Bio</label>
+        <textarea 
+          id="bio" 
+          name="bio"
+          [(ngModel)]="userProfile.bio"
+          rows="4"></textarea>
+      </div>
+
+      <button type="submit" class="save-btn" [disabled]="!profileForm.form.valid">
+        Save Changes
+      </button>
+    </form>
+  </div>
+</div> 
