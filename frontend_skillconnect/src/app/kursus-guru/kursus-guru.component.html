@@ -1,0 +1,62 @@
+<div class="main-container">
+  <header class="header">
+    <div class="brand">KURSUS KITA</div>
+    <div class="search-bar">
+      <input type="search" placeholder="Search..." />
+    </div>
+    <div class="user-menu">
+      <button class="user-btn" (click)="logout()">
+        <i class="fas fa-user"></i>
+        user
+      </button>
+    </div>
+  </header>
+
+  <div class="main-content">
+    <nav class="sidebar">
+      <div class="menu">
+        <h3>Menu</h3>
+        <ul>
+          <li routerLink="/kursus-guru" routerLinkActive="active">
+            <i class="fas fa-book"></i>
+            <span>Kursus</span>
+          </li>
+          <li routerLink="/materi-guru" routerLinkActive="active">
+            <i class="fas fa-file-alt"></i>
+            <span>Materi</span>
+          </li>
+          <li routerLink="/guru" routerLinkActive="active">
+            <i class="fas fa-user-alt"></i>
+            <span>Guru</span>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <main class="content">
+      <div class="action-buttons">
+        <a routerLink="/absen"><button class="absensi-btn">ABSENSI</button></a>
+      </div>
+
+      <div class="package-container">
+        <div class="package-card">
+          <div class="package-header">Paket A</div>
+          <div class="package-content">
+            <div class="info-grid">
+              <div class="info-item">
+                <label>Jumlah siswa : 15</label>
+              </div>
+              <div class="info-item">
+                <label>Jam : 20:00</label>
+              </div>
+              <div class="info-item">
+                <label>Hari : senin dan kamis</label>
+              </div>
+            </div>
+            <button class="mulai-btn">Mulai</button>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
