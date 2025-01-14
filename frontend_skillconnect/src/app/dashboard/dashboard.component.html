@@ -1,0 +1,69 @@
+<div class="main-container">
+  <header class="header">
+    <div class="brand">SKILL CONNECT</div>
+    <div class="search-bar">
+      <input type="search" placeholder="Search..." />
+    </div>
+    <div class="user-menu">
+      <button class="user-btn" (click)="logout()">
+        <i class="fas fa-user"></i>
+        user
+      </button>
+    </div>
+  </header>
+
+  <div class="main-content">
+    <nav class="sidebar">
+      <div class="menu">
+        <h3>Menu</h3>
+        <ul>
+          <li routerLink="/dashboard" routerLinkActive="active">
+            <i class="fas fa-home"></i>
+            <span>Dashboard</span>
+          </li>
+          <li routerLink="/kursus" routerLinkActive="active">
+            <i class="fas fa-book"></i>
+            <span>Kursus</span>
+          </li>
+          <li routerLink="/materi" routerLinkActive="active">
+            <i class="fas fa-file-alt"></i>
+            <span>Materi</span>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <main class="content">
+      <div class="welcome-section">
+        <h2>Selamat Datang di SKILL CONNECT</h2>
+        <button class="btn-mulai">Mulai Kursus</button>
+      </div>
+
+      <div class="packages">
+        <div class="package-card">
+          <h3>PAKET A</h3>
+          <p>Akses semua materi</p>
+          <p>hari: senin dan kamis</p>
+          <p>harga: Rp 100.000</p>
+          <button class="btn-pilih">Pilih</button>
+        </div>
+
+        <div class="package-card">
+          <h3>PAKET B</h3>
+          <p>Akses semua materi</p>
+          <p>hari: selasa dan kamis</p>
+          <p>harga: Rp 100.000</p>
+          <button class="btn-pilih">Pilih</button>
+        </div>
+
+        <div class="package-card">
+          <h3>PAKET C</h3>
+          <p>Akses semua materi</p>
+          <p>hari: rabu dan kamis</p>
+          <p>harga: Rp 100.000</p>
+          <button class="btn-pilih">Pilih</button>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
