@@ -1,0 +1,65 @@
+<div class="main-container">
+  <header class="header">
+    <div class="brand">KURSUS KITA</div>
+    <div class="search-bar">
+      <input type="search" placeholder="Search..." />
+    </div>
+    <div class="user-menu">
+      <button class="user-btn" (click)="logout()">
+        <i class="fas fa-user"></i>
+        user
+      </button>
+    </div>
+  </header>
+
+  <div class="main-content">
+    <nav class="sidebar">
+      <div class="menu">
+        <h3>Menu</h3>
+        <ul>
+          <li routerLink="/kursus-guru" routerLinkActive="active">
+            <i class="fas fa-book"></i>
+            <span>Kursus</span>
+          </li>
+          <li routerLink="/materi-guru" routerLinkActive="active">
+            <i class="fas fa-file-alt"></i>
+            <span>Materi</span>
+          </li>
+          <li routerLink="/guru" routerLinkActive="active">
+            <i class="fas fa-user-alt"></i>
+            <span>Guru</span>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <main class="content">
+      <div class="packages-grid">
+        <div class="package-card">
+          <div class="package-header">PAKET A</div>
+          <div class="package-content">
+            <button class="konfirmasi-btn">KONFIRMASI</button>
+          </div>
+        </div>
+        <div class="package-card">
+          <div class="package-header">PAKET B</div>
+          <div class="package-content">
+            <button class="konfirmasi-btn">KONFIRMASI</button>
+          </div>
+        </div>
+        <div class="package-card">
+          <div class="package-header">PAKET C</div>
+          <div class="package-content">
+            <button class="konfirmasi-btn">KONFIRMASI</button>
+          </div>
+        </div>
+        <div class="package-card">
+          <div class="package-header">PAKET D</div>
+          <div class="package-content">
+            <button class="konfirmasi-btn">KONFIRMASI</button>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
