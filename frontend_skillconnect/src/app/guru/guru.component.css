@@ -1,0 +1,115 @@
+.main-container {
+  min-height: 100vh;
+  background-color: #f0f0f0;
+}
+
+.header {
+  background-color: #6b46c1;
+  color: white;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.brand {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.search-bar input {
+  padding: 0.5rem;
+  border-radius: 20px;
+  border: none;
+  width: 300px;
+}
+
+.user-btn {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+.main-content {
+  display: flex;
+  min-height: calc(100vh - 64px);
+}
+
+.sidebar {
+  width: 250px;
+  background-color: white;
+  padding: 1rem;
+}
+
+.menu ul {
+  list-style: none;
+  padding: 0;
+}
+
+.menu li {
+  padding: 0.75rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.menu li.active {
+  background-color: #6b46c1;
+  color: white;
+  border-radius: 4px;
+}
+
+.content {
+  flex: 1;
+  padding: 2rem;
+  background-color: #f0f0f0;
+}
+
+.packages-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  padding: 0.5rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.package-card {
+  background-color: white;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid #ddd;
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+}
+
+.package-header {
+  background-color: #6b46c1;
+  color: white;
+  padding: 1rem;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.package-content {
+  flex: 1;
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.konfirmasi-btn {
+  background-color: #6b46c1;
+  color: white;
+  border: none;
+  padding: 0.75rem 2rem;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1rem;
+}
