@@ -1,21 +1,18 @@
-// dashboard.component.ts
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { AuthService } from '../services/auth.service';
 
 @Component({
-  selector: 'app-dashboard',
+  selector: 'app-guru',
   standalone: true,
   imports: [CommonModule, FormsModule, RouterLink, RouterLinkActive],
-  templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.css'],
+  templateUrl: './guru.component.html',
+  styleUrls: ['./guru.component.css'],
 })
-export class DashboardComponent implements OnInit {
+export class GuruComponent implements OnInit {
   username: string = '';
-  isSidebarVisible: boolean = false;
 
   constructor(private authService: AuthService, private router: Router) {}
 
@@ -24,10 +21,6 @@ export class DashboardComponent implements OnInit {
     if (user) {
       this.username = user.username;
     }
-  }
-
-  toggleSidebar() {
-    this.isSidebarVisible = !this.isSidebarVisible;
   }
 
   logout() {
