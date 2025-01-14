@@ -47,9 +47,9 @@ export const routes: Routes = [
   //       (m) => m.MateriGuruComponent
   //     ),
   // },
-  // {
-  //   path: 'guru',
-  //   loadComponent: () =>
-  //     import('./guru/guru.component').then((m) => m.GuruComponent),
-  // },
+  {
+    path: 'guru',
+    loadComponent: () =>
+      import('./guru/guru.component').then((m) => m.GuruComponent),
+  },
 ];
