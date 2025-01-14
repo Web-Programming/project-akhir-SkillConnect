@@ -1,7 +1,7 @@
 <div class="main-container">
   <header class="header">
     <div class="brand">SKILL CONNECT</div>
-    <div class="search-bar input-group mb-3">
+    <div class="search-bar input-group mb-3 justify-content-center" style="max-width: 400px; margin: auto;">
       <input type="search" class="form-control" placeholder="Search..." />
       <button class="btn btn-primary rounded-pill" type="button">
         <i class="fas fa-search"></i>
@@ -13,7 +13,6 @@
         user
       </button>
     </div>
-    
     <div class="sidebar1" [class.active]="isSidebarVisible">
       <button class="btn btn-danger" (click)="logout()">Logout</button>
     </div>
