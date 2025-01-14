@@ -1,14 +1,21 @@
 <div class="main-container">
   <header class="header">
     <div class="brand">SKILL CONNECT</div>
-    <div class="search-bar">
-      <input type="search" placeholder="Search..." />
+    <div class="search-bar input-group mb-3">
+      <input type="search" class="form-control" placeholder="Search..." />
+      <button class="btn btn-primary rounded-pill" type="button">
+        <i class="fas fa-search"></i>
+      </button>
     </div>
     <div class="user-menu">
-      <button class="user-btn" (click)="logout()">
+      <button class="user-btn" (click)="toggleSidebar()">
         <i class="fas fa-user"></i>
         user
       </button>
+    </div>
+    
+    <div class="sidebar1" [class.active]="isSidebarVisible">
+      <button class="btn btn-danger" (click)="logout()">Logout</button>
     </div>
   </header>
 

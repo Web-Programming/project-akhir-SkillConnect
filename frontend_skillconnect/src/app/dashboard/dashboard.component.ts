@@ -15,6 +15,7 @@ import { AuthService } from '../services/auth.service';
 })
 export class DashboardComponent implements OnInit {
   username: string = '';
+  isSidebarVisible: boolean = false;
 
   constructor(private authService: AuthService, private router: Router) {}
 
@@ -23,6 +24,10 @@ export class DashboardComponent implements OnInit {
     if (user) {
       this.username = user.username;
     }
+  }
+
+  toggleSidebar() {
+    this.isSidebarVisible = !this.isSidebarVisible;
   }
 
   logout() {
