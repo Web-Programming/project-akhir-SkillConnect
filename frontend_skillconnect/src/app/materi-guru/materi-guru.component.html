@@ -1,0 +1,78 @@
+<div class="main-container">
+  <header class="header">
+    <div class="brand">KURSUS KITA</div>
+    <div class="search-bar">
+      <input type="search" placeholder="Search..." />
+    </div>
+    <div class="user-menu">
+      <button class="user-btn" (click)="logout()">
+        <i class="fas fa-user"></i>
+        user
+      </button>
+    </div>
+  </header>
+
+  <div class="main-content">
+    <nav class="sidebar">
+      <div class="menu">
+        <h3>Menu</h3>
+        <ul>
+          <li routerLink="/kursus-guru" routerLinkActive="active">
+            <i class="fas fa-book"></i>
+            <span>Kursus</span>
+          </li>
+          <li routerLink="/materi-guru" routerLinkActive="active">
+            <i class="fas fa-file-alt"></i>
+            <span>Materi</span>
+          </li>
+          <li routerLink="/guru" routerLinkActive="active">
+            <i class="fas fa-user-alt"></i>
+            <span>Guru</span>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <main class="content">
+      <div class="paket-navigation">
+        <div class="nav-pills">
+          <button
+            *ngFor="let i of [1, 2, 3, 4, 5, 6, 7, 9, 10]"
+            [class.active]="selectedPaket === 'P' + i"
+            (click)="selectPaket('P' + i)"
+          >
+            P{{ i }}
+          </button>
+        </div>
+      </div>
+
+      <div class="package-card">
+        <div class="package-header">
+          {{ selectedPaket || "PAKET A" }}
+        </div>
+        <div class="package-content">
+          <div class="upload-container">
+            <div class="file-input-wrapper">
+              <input
+                type="file"
+                #fileInput
+                (change)="onFileSelected($event)"
+                [style.display]="'none'"
+              />
+              <div class="file-placeholder" (click)="fileInput.click()">
+                {{ selectedFile?.name || "Pilih file" }}
+              </div>
+            </div>
+            <button
+              class="upload-btn"
+              [disabled]="!selectedFile"
+              (click)="uploadFile()"
+            >
+              UPLOAD
+            </button>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
