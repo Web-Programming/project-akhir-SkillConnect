@@ -1,0 +1,125 @@
+<div class="main-container">
+  <header class="header">
+    <div class="brand">KURSUS KITA</div>
+    <div class="search-bar">
+      <input type="search" placeholder="Search..." />
+    </div>
+    <div class="user-menu">
+      <button class="user-btn" (click)="logout()">
+        <i class="fas fa-user"></i>
+        user
+      </button>
+    </div>
+  </header>
+
+  <div class="main-content">
+    <nav class="sidebar">
+      <div class="menu">
+        <h3>Menu</h3>
+        <ul>
+          <li routerLink="/kursus-guru" routerLinkActive="active">
+            <i class="fas fa-book"></i>
+            <span>Kursus</span>
+          </li>
+          <li routerLink="/materi-guru" routerLinkActive="active">
+            <i class="fas fa-file-alt"></i>
+            <span>Materi</span>
+          </li>
+          <li routerLink="/guru" routerLinkActive="active">
+            <i class="fas fa-user-alt"></i>
+            <span>Guru</span>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <main class="content">
+      <div class="absensi-card">
+        <div class="absensi-header">DAFTAR ABSENSI</div>
+        <div class="absensi-content">
+          <div class="total-siswa">Jumlah siswa : 15</div>
+
+          <div class="absensi-table">
+            <div class="table-header">
+              <div class="col-nama">Nama</div>
+              <div class="col-kelas">Kelas</div>
+              <div class="col-status">
+                Status
+                <div class="status-labels">
+                  <span>H</span>
+                  <span>A</span>
+                  <span>I</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="table-body">
+              <div class="table-row">
+                <div class="col-nama">hues</div>
+                <div class="col-kelas">A</div>
+                <div class="col-status">
+                  <div class="status-dots">
+                    <label class="radio-container">
+                      <input type="radio" name="status1" value="H" checked />
+                      <span class="dot"></span>
+                    </label>
+                    <label class="radio-container">
+                      <input type="radio" name="status1" value="A" />
+                      <span class="dot"></span>
+                    </label>
+                    <label class="radio-container">
+                      <input type="radio" name="status1" value="I" />
+                      <span class="dot"></span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div class="table-row">
+                <div class="col-nama">AB</div>
+                <div class="col-kelas">A</div>
+                <div class="col-status">
+                  <div class="status-dots">
+                    <label class="radio-container">
+                      <input type="radio" name="status2" value="H" checked />
+                      <span class="dot"></span>
+                    </label>
+                    <label class="radio-container">
+                      <input type="radio" name="status2" value="A" />
+                      <span class="dot"></span>
+                    </label>
+                    <label class="radio-container">
+                      <input type="radio" name="status2" value="I" />
+                      <span class="dot"></span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div class="table-row">
+                <div class="col-nama">AC</div>
+                <div class="col-kelas">A</div>
+                <div class="col-status">
+                  <div class="status-dots">
+                    <label class="radio-container">
+                      <input type="radio" name="status3" value="H" checked />
+                      <span class="dot"></span>
+                    </label>
+                    <label class="radio-container">
+                      <input type="radio" name="status3" value="A" />
+                      <span class="dot"></span>
+                    </label>
+                    <label class="radio-container">
+                      <input type="radio" name="status3" value="I" />
+                      <span class="dot"></span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <button class="simpan-btn">SIMPAN</button>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
