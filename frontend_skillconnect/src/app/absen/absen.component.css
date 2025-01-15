@@ -1,0 +1,314 @@
+.main-container {
+  min-height: 100vh;
+  background-color: #f0f0f0;
+}
+
+.header {
+  background-color: #6b46c1;
+  color: white;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.brand {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.search-bar input {
+  padding: 0.5rem;
+  border-radius: 20px;
+  border: none;
+  width: 300px;
+}
+
+.user-btn {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+.main-content {
+  display: flex;
+  min-height: calc(100vh - 64px);
+}
+
+.sidebar {
+  width: 250px;
+  background-color: white;
+  padding: 1rem;
+}
+
+.menu ul {
+  list-style: none;
+  padding: 0;
+}
+
+.menu li {
+  padding: 0.75rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.menu li.active {
+  background-color: #6b46c1;
+  color: white;
+  border-radius: 4px;
+}
+
+.content {
+  padding: 20px;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
+.packages-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  padding: 0.5rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.package-card {
+  background-color: white;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid #ddd;
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+}
+
+.package-header {
+  background-color: #6b46c1;
+  color: white;
+  padding: 1rem;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.package-content {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.konfirmasi-btn {
+  background-color: #6b46c1;
+  color: white;
+  border: none;
+  padding: 0.75rem 2rem;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.content {
+  padding: 20px;
+}
+
+.action-buttons {
+  margin-bottom: 20px;
+}
+
+.absensi-btn {
+  background-color: #8000ff;
+  color: white;
+  border: none;
+  padding: 10px 25px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.package-container {
+  display: flex;
+  gap: 20px;
+}
+
+.package-card {
+  background-color: white;
+  border-radius: 10px;
+  overflow: hidden;
+  width: 280px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.package-header {
+  background-color: #8000ff;
+  color: white;
+  padding: 15px 20px;
+  font-size: 18px;
+  font-weight: 500;
+  text-align: center;
+}
+
+.package-content {
+  padding: 20px;
+}
+
+.info-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 15px;
+}
+
+.info-item {
+  display: flex;
+  align-items: center;
+}
+
+.info-item label {
+  font-weight: 500;
+  color: #333;
+}
+
+.info-item span {
+  color: #666;
+}
+
+.mulai-btn {
+  background-color: #8000ff;
+  color: white;
+  border: none;
+  padding: 8px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 500;
+  margin: 0 auto;
+  display: block;
+  width: fit-content;
+  float: none;
+}
+
+.mulai-btn:hover {
+  background-color: #6600cc;
+}
+
+/* CSS Absen */
+.absensi-card {
+  background: white;
+  border-radius: 10px;
+  width: 100%;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.absensi-header {
+  background: #8000ff;
+  color: white;
+  padding: 15px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.absensi-content {
+  padding: 20px;
+}
+
+.total-siswa {
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+
+.absensi-table {
+  margin-bottom: 20px;
+}
+
+.table-header {
+  display: grid;
+  grid-template-columns: 2fr 1fr 2fr;
+  gap: 20px;
+  margin-bottom: 15px;
+  font-weight: 500;
+}
+
+.status-labels {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 5px;
+}
+
+.table-row {
+  display: grid;
+  grid-template-columns: 2fr 1fr 2fr;
+  gap: 20px;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.status-dots {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+.col-status,
+.col-nama,
+.col-kelas {
+  text-align: center;
+}
+
+.dot {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: #e0e0e0;
+}
+
+.dot.active {
+  background: #8000ff;
+}
+
+.simpan-btn {
+  background: #8000ff;
+  color: white;
+  border: none;
+  padding: 10px 30px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: 500;
+  display: block;
+  margin: 20px auto 0;
+}
+
+.simpan-btn:hover {
+  background: #6600cc;
+}
+
+.radio-container {
+  position: relative;
+  cursor: pointer;
+}
+
+.radio-container input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.dot {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: #e0e0e0;
+}
+
+/* Ketika radio button di-check, dot akan berubah warna */
+.radio-container input[type="radio"]:checked + .dot {
+  background: #8000ff;
+}
