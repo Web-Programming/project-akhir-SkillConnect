@@ -1,131 +1,47 @@
-import { Injectable, Inject, PLATFORM_ID } from '@angular/core';
-import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
-import { environment } from '@environments/environment';
-import { Observable, throwError } from 'rxjs';
-import { catchError, tap } from 'rxjs/operators';
-import { isPlatformBrowser } from '@angular/common';
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { tap } from 'rxjs/operators';
+
+interface LoginResponse {
+  success: boolean;
+  user?: any;
+}
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthService {
-  private apiUrl = environment.apiUrl; // misalnya 'http://localhost:3001/api'
+  private apiUrl = 'http://localhost:3000/api';
 
-  constructor(
-    private http: HttpClient,
-    @Inject(PLATFORM_ID) private platformId: Object
-  ) {}
+  constructor(private http: HttpClient) {}
 
-  login(credentials: { email: string; password: string }): Observable<LoginResponse> {
-    return this.http.post<LoginResponse>(`${this.apiUrl}/auth/login`, credentials)
+  login(email: string, password: string): Observable<LoginResponse> {
+    return this.http
+      .post<LoginResponse>(`${this.apiUrl}/login`, { email, password })
       .pipe(
-        tap((response: LoginResponse) => {
-          if (response.token) {
-            this.setToken(response.token);
+        tap((response) => {
+          if (response.success) {
+            localStorage.setItem('user', JSON.stringify(response.user));
           }
-        }),
-        catchError(this.handleError)
-      );
-  }
-
-  private handleError(error: HttpErrorResponse) {
-    if (error.status === 0) {
-      // Client-side atau network error
-      return throwError(() => new Error('Tidak dapat terhubung ke server'));
-    } else {
-      // Backend mengembalikan error
-      const message = error.error?.message || 'Terjadi kesalahan pada server';
-      return throwError(() => new Error(message));
-    }
-  }
-
-  // Simpan token setelah login berhasil
-  setToken(token: string) {
-    if (isPlatformBrowser(this.platformId)) {
-      localStorage.setItem('token', token);
-    }
-  }
-
-  // Ambil token untuk request yang membutuhkan autentikasi
-  getToken(): string | null {
-    if (isPlatformBrowser(this.platformId)) {
-      return localStorage.getItem('token');
-    }
-    return null;
-  }
-
-  // Cek apakah user sudah login
-  isLoggedIn(): boolean {
-    if (isPlatformBrowser(this.platformId)) {
-      return !!this.getToken();
-    }
-    return false;
-  }
-
-  getUserProfile(): Observable<UserProfile> {
-    return this.http.get<UserProfile>(`${this.apiUrl}/auth/profile`, this.getAuthHeaders())
-      .pipe(
-        catchError((error: HttpErrorResponse) => {
-          console.error('Profile error:', error);
-          if (error.status === 401) {
-            this.logout(); // Token tidak valid, logout user
-            return throwError(() => new Error('Sesi telah berakhir, silakan login kembali'));
-          }
-          return throwError(() => new Error('Gagal memuat profil: ' + (error.error?.message || 'Terjadi kesalahan')));
         })
       );
   }
 
-  updateProfile(profileData: UserProfile): Observable<UserProfile> {
-    return this.http.put<UserProfile>(
-      `${this.apiUrl}/auth/profile`,
-      profileData,
-      this.getAuthHeaders()
-    );
-  }
-
-  private getAuthHeaders() {
-    const token = this.getToken();
-    if (!token) {
-      throw new Error('Token tidak ditemukan');
-    }
-    return {
-      headers: new HttpHeaders().set('Authorization', `Bearer ${token}`)
-    };
-  }
-
-  register(userData: RegisterData): Observable<RegisterResponse> {
-    return this.http.post<RegisterResponse>(`${this.apiUrl}/auth/register`, userData);
+  register(userData: any): Observable<any> {
+    return this.http.post(`${this.apiUrl}/register`, userData);
   }
 
   logout(): void {
-    if (isPlatformBrowser(this.platformId)) {
-      localStorage.removeItem('token');
-    }
+    localStorage.removeItem('user');
   }
-}
 
-export interface UserProfile {
-  name: string;
-  email: string;
-  phone?: string;
-  bio?: string;
-  photoUrl?: string;
-}
+  getCurrentUser(): any {
+    const user = localStorage.getItem('user');
+    return user ? JSON.parse(user) : null;
+  }
 
-export interface RegisterData {
-  name: string;
-  email: string;
-  password: string;
-}
-
-export interface RegisterResponse {
-  success: boolean;
-  message: string;
-}
-
-export interface LoginResponse {
-  success: boolean;
-  message: string;
-  token: string;
+  isLoggedIn(): boolean {
+    return !!this.getCurrentUser();
+  }
 }
