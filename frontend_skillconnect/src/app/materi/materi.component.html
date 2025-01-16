@@ -1,0 +1,57 @@
+<div class="main-container">
+  <!-- Header -->
+  <header class="header">
+    <div class="brand">KURSUS KITA</div>
+    <div class="search-bar">
+      <input type="text" placeholder="Search...." />
+    </div>
+    <div class="user-menu">
+      <button class="user-btn" (click)="logout()">
+        <i class="fas fa-user"></i>
+        user
+      </button>
+    </div>
+  </header>
+
+  <div class="main-content">
+    <!-- Sidebar -->
+    <nav class="sidebar">
+      <div class="menu">
+        <h3>Menu</h3>
+        <ul>
+          <li routerLink="/dashboard" routerLinkActive="active">
+            <i class="fas fa-home"></i>
+            <span>Dashboard</span>
+          </li>
+          <li routerLink="/kursus" routerLinkActive="active">
+            <i class="fas fa-book"></i>
+            <span>Kursus</span>
+          </li>
+          <li routerLink="/materi" routerLinkActive="active">
+            <i class="fas fa-file-alt"></i>
+            <span>Materi</span>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Content -->
+    <main class="content">
+      <div class="materi-section">
+        <h2>Materi</h2>
+        <div class="materi-grid">
+          <!-- Row 1 -->
+          <div class="materi-card" *ngFor="let p of [1, 2, 3, 4, 5]">
+            <div class="materi-content">P{{ p }}</div>
+            <button class="btn-unduh">Unduh</button>
+          </div>
+          <!-- Row 2 -->
+          <div class="materi-card" *ngFor="let p of [6, 7, 8, 9, 10]">
+            <div class="materi-content">P{{ p }}</div>
+            <button class="btn-unduh">Unduh</button>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
